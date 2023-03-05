@@ -28,6 +28,8 @@ def game_start():
                 player2_move = []
                 player1 = input('Player 1 please enter your name:')
                 player2 = input('Player 2 please enter your name:')
+                player1 = player1.lower()
+                player2 = player2.lower()
                 try:
                     games_tracker[player1] += 1
                 except Exception:
@@ -52,7 +54,7 @@ def game_start():
                         print(temp_tracker)
                         break
                     try:
-                        move = inputimeout(timeout=timeout_time)
+                        player_move = inputimeout(timeout=timeout_time)
                     except TimeoutOccurred:
                         print('You ran out of time, you lost')
                         if player == 1:
@@ -102,7 +104,13 @@ def game_start():
                         temp_tracker += player2_move
                         moves_tracker += temp_tracker
                         break
-                    player_move = input()
+                    try:
+                        player_move = inputimeout(timeout=timeout_time)
+                    except TimeoutOccurred:
+                        print('You ran out of time, you lost')
+                        win_tracker[player2] += 1
+                        scoreboard[player2] = win_tracker[player2] / games_tracker[player2]
+                        scoreboard[player1] = win_tracker[player1] / games_tracker[player1]
                     try:
                         move = validate_move(player_move, board, Turn.player1)
                         play_move(board, move, Turn.player1)
@@ -128,7 +136,14 @@ def game_start():
                         temp_tracker += player2_move
                         moves_tracker += temp_tracker
                         break
-                    player_move = input()
+                    try:
+                        player_move = inputimeout(timeout=timeout_time)
+                    except TimeoutOccurred:
+                        print('You ran out of time, you lost')
+                        win_tracker[player2] += 1
+                        scoreboard[player2] = win_tracker[player2] / games_tracker[player2]
+                        scoreboard[player1] = win_tracker[player1] / games_tracker[player1]
+
                     try:
                         move = validate_move(player_move, board, Turn.player1)
                         play_move(board, move, Turn.player1)
@@ -155,7 +170,13 @@ def game_start():
                         temp_tracker += player2_move
                         moves_tracker += temp_tracker
                         break
-                    player_move = input()
+                    try:
+                        player_move = inputimeout(timeout=timeout_time)
+                    except TimeoutOccurred:
+                        print('You ran out of time, you lost')
+                        win_tracker[player2] += 1
+                        scoreboard[player2] = win_tracker[player2] / games_tracker[player2]
+                        scoreboard[player1] = win_tracker[player1] / games_tracker[player1]
                     try:
                         move = validate_move(player_move, board, Turn.player1)
                         play_move(board, move, Turn.player1)

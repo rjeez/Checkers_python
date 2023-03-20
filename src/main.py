@@ -3,21 +3,46 @@ from src.state import *
 from src.simpleai import *
 from src.minimax_ai import *
 from inputimeout import inputimeout, TimeoutOccurred
+import pickle
 
 timeout_time = 10
 
 
 def game_start():
-    scoreboard = start_scoreboard()
-    win_tracker = start_win_tracker()
-    games_tracker = start_games_tracker()
-    moves_tracker = start_moves_tracker()
+    try:
+        with open('scoreboard.pkl',  'rb') as score:
+            scoreboard = pickle.load(score)
+    except Exception as e:
+        scoreboard = start_scoreboard()
+    try:
+        with open('win.pkl',  'rb') as win:
+            win_tracker = pickle.load(win)
+    except Exception:
+        win_tracker = start_win_tracker()
+    try:
+        with open('games.pkl',  'rb') as games:
+            games_tracker = pickle.load(games)
+    except Exception:
+        games_tracker = start_games_tracker()
+    try:
+        with open('move.pkl',  'rb') as move:
+            moves_tracker = pickle.load(move)
+    except Exception:
+        moves_tracker = start_moves_tracker()
     while True:
         print("Please select from the following, 1 -> self play, 2 -> simple ai, 3 -> minimax ai, "
               "4 -> reinforced learning ai, s -> print scoreboard, m -> past moves list, q -> quit")
         player_input = input()
         match player_input:
             case "q":
+                with open('scoreboard.pkl',  'wb') as score:
+                    pickle.dump(scoreboard, score)
+                with open('win.pkl',  'wb') as win:
+                    pickle.dump(scoreboard, win)
+                with open('games.pkl',  'wb') as games:
+                    pickle.dump(scoreboard, games)
+                with open('moves.pkl',  'wb') as move:
+                    pickle.dump(scoreboard, move)
                 break
             case "s":
                 print_scoreboard(scoreboard)

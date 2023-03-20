@@ -101,35 +101,3 @@ def change_spots(board):
         board_spot += temp
     return board_spot
 
-
-
-
-'''
-def init_gui_board(board):
-    board.set_piece_at(chess.B8, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.D8, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.F8, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.H8, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.A7, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.C7, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.E7, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.G7, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.B6, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.D6, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.F6, chess.Piece.from_symbol('k'), chess.KING)
-    board.set_piece_at(chess.H6, chess.Piece.from_symbol('k'), chess.KING)
-
-    board.set_piece_at(chess.A3, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.C3, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.E3, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.G3, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.B2, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.D2, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.F2, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.H2, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.A1, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.C1, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.E1, chess.Piece.from_symbol('K'), chess.KING)
-    board.set_piece_at(chess.G1, chess.Piece.from_symbol('K'), chess.KING)
-    return board
-'''
